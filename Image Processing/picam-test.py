@@ -6,10 +6,14 @@ import cv2
  
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
-rawCapture = PiRGBArray(camera)
+RESOLUTION= (640,480) #(1024,768)#(640,480)
+camera.resolution=RESOLUTION
+
+#rawCapture = PiRGBArray(camera)
+rawCapture = PiRGBArray(camera,size=RESOLUTION)
  
 # allow the camera to warmup
-time.sleep(0.1)
+time.sleep(0.2)
  
 # grab an image from the camera
 camera.capture(rawCapture, format="bgr")
